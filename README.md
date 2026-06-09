@@ -37,9 +37,9 @@ Mon objectif : Devenir un développeur compétent capable de concevoir des solut
 
 | Projet | Description | Technologies | Lien |
 |--------|-------------|--------------|------|
-| Portfolio Personnel | Site web moderne et responsive avec design unique | HTML, Tailwind CSS, JavaScript | [Voir le site →] <a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a> |
-| Mini-site E-commerce | Boutique en ligne responsive avec panier | HTML, CSS, JS | [Voir le projet →]<a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a> |
-| Campagne Publicitaire | Création d’affiches et d’identité visuelle | Canva, Photoshop | [Voir les designs →]<a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a> |
+| Portfolio Personnel | Site web moderne et responsive avec design unique | HTML, Tailwind CSS, JavaScript | [Voir le site →] <a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Mini Site</a> |
+| Mini-site E-commerce | Boutique en ligne responsive avec panier | HTML, CSS, JS | [Voir le projet →]<a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Mini Site</a> |
+| Campagne Publicitaire | Création d’affiches et d’identité visuelle | Canva, Photoshop | [Voir les designs →]<a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Mini Site</a> |
 
 > 🔗 Tous mes projets sont disponibles dans la section [Projects]<a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a> ou directement sur mon <a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a>.
 
