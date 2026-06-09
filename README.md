@@ -39,7 +39,7 @@ Mon objectif : Devenir un développeur compétent capable de concevoir des solut
 
 | Projet | Description | Technologies | Lien |
 |--------|-------------|--------------|------|
-| Portfolio Personnel | Site web moderne et responsive avec design unique | HTML, Tailwind CSS, JavaScript | [Voir le site →] <a href="file:///C:/Users/MAGANGA%20DACOSTA/OneDrive/Desktop/work%20hout%20HTML/portfolio/index.html"> |
+| Portfolio Personnel | Site web moderne et responsive avec design unique | HTML, Tailwind CSS, JavaScript | [Voir le site →] <a href="file:///C:/Users/MAGANGA%20DACOSTA/OneDrive/Desktop/work%20hout%20HTML/portfolio/index.html">Voir mes projets</a> |
 | Mini-site E-commerce | Boutique en ligne responsive avec panier | HTML, CSS, JS | [Voir le projet →](#) |
 | Campagne Publicitaire | Création d’affiches et d’identité visuelle | Canva, Photoshop | [Voir les designs →](#) |
 
