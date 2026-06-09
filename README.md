@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="img/img2.jpg" alt="Ulysse Ferlin" width="180" style="border-radius: 9999px; border: 6px solid #3b82f6;">
-  
+
   <h1>👋 Bonjour, je suis <span style="color:#3b82f6;">Ulysse Ferlin Maganga DACOSTA</span></h1>
   
   <p>
@@ -40,10 +38,10 @@ Mon objectif : Devenir un développeur compétent capable de concevoir des solut
 | Projet | Description | Technologies | Lien |
 |--------|-------------|--------------|------|
 | Portfolio Personnel | Site web moderne et responsive avec design unique | HTML, Tailwind CSS, JavaScript | [Voir le site →] <a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a> |
-| Mini-site E-commerce | Boutique en ligne responsive avec panier | HTML, CSS, JS | [Voir le projet →](#) |
-| Campagne Publicitaire | Création d’affiches et d’identité visuelle | Canva, Photoshop | [Voir les designs →](#) |
+| Mini-site E-commerce | Boutique en ligne responsive avec panier | HTML, CSS, JS | [Voir le projet →]<a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a> |
+| Campagne Publicitaire | Création d’affiches et d’identité visuelle | Canva, Photoshop | [Voir les designs →]<a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a> |
 
-> 🔗 Tous mes projets sont disponibles dans la section [Projects](https://github.com/tonusername/tonrepo/projects) ou directement sur mon [Portfolio](https://tonusername.github.io/tonrepo).
+> 🔗 Tous mes projets sont disponibles dans la section [Projects]<a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a> ou directement sur mon <a href="https://ulysseferlindacosta-glitch.github.io/Portfolio/portfolio/">Voir mes projets</a>.
 
 ---
 
