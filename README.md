@@ -1,5 +1,3 @@
-# Portfolio
-Mon portfolio en ligne — Développeur [Frontend / Full Stack / UI/UX / etc.]. Découvrez mes projets, mes compétences et mon parcours.
 <div align="center">
   <img src="img/img2.jpg" alt="Ulysse Ferlin" width="180" style="border-radius: 9999px; border: 6px solid #3b82f6;">
   
@@ -34,20 +32,6 @@ Mon objectif : Devenir un développeur compétent capable de concevoir des solut
 
 ### 🛠️ Compétences
 
-<div align="center">
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
-![Responsive Design](https://img.shields.io/badge/Responsive-Design-4F46E5?style=for-the-badge)
-![Figma / Canva](https://img.shields.io/badge/Design_Graphique-FF0000?style=for-the-badge&logo=canva&logoColor=white)
-![Microsoft Office](https://img.shields.io/badge/Microsoft_Office-00A2ED?style=for-the-badge&logo=microsoft-office&logoColor=white)
-
-![AI Prompting](https://img.shields.io/badge/IA_&_Prompting-10B981?style=for-the-badge&logo=openai&logoColor=white)
-
-</div>
 
 ---
 
@@ -55,7 +39,7 @@ Mon objectif : Devenir un développeur compétent capable de concevoir des solut
 
 | Projet | Description | Technologies | Lien |
 |--------|-------------|--------------|------|
-| Portfolio Personnel | Site web moderne et responsive avec design unique | HTML, Tailwind CSS, JavaScript | [Voir le site →](https://tonusername.github.io/tonrepo) |
+| Portfolio Personnel | Site web moderne et responsive avec design unique | HTML, Tailwind CSS, JavaScript | [Voir le site →] <a href="file:///C:/Users/MAGANGA%20DACOSTA/OneDrive/Desktop/work%20hout%20HTML/portfolio/index.html"> |
 | Mini-site E-commerce | Boutique en ligne responsive avec panier | HTML, CSS, JS | [Voir le projet →](#) |
 | Campagne Publicitaire | Création d’affiches et d’identité visuelle | Canva, Photoshop | [Voir les designs →](#) |
 
