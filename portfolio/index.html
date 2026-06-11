@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-        
+
         :root {
             --primary: #3b82f6;
         }
-        
+ 
         body {
             font-family: 'Inter', system-ui, sans-serif;
         }
-        
+
         .heading-font {
             font-family: 'Space Grotesk', sans-serif;
         }
@@ -28,7 +29,7 @@
         .nav-link {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .nav-link:hover {
             color: #3b82f6;
             transform: translateY(-2px);
@@ -37,7 +38,7 @@
         .project-card {
             transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
-        
+
         .project-card:hover {
             transform: translateY(-12px) scale(1.03);
             box-shadow: 0 25px 50px -12px rgb(59 130 246 / 0.25);
@@ -52,7 +53,7 @@
         .section-title {
             position: relative;
         }
-        
+
         .section-title:after {
             content: '';
             position: absolute;
@@ -62,182 +63,255 @@
             bottom: -8px;
             left: 0;
         }
+
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+
+        .mobile-menu:not(.active) {
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                text-align: center;
+            }
+
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
+
 <body class="bg-zinc-950 text-white overflow-x-hidden">
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-xl font-bold">UF</div>
-                <span class="text-2xl font-semibold heading-font tracking-tight">Ulysse Ferlin</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div
+                    class="w-8 h-8 sm:w-9 sm:h-9 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm sm:text-xl font-bold">
+                    UF</div>
+                <span class="text-lg sm:text-2xl font-semibold heading-font tracking-tight">Ulysse</span>
             </div>
-            
-            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6 lg:gap-10 text-sm font-medium">
                 <a href="#accueil" class="nav-link">Accueil</a>
                 <a href="#apropos" class="nav-link">À propos</a>
                 <a href="#projets" class="nav-link">Projets</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            
-            <a href="#contact" 
-               class="px-6 py-3 bg-white text-zinc-900 rounded-2xl font-semibold hover:bg-blue-500 hover:text-white transition-all">
-                Me contacter
-            </a>
+
+            <!-- CTA Button + Mobile Menu Toggle -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <a href="#contact"
+                    class="hidden sm:inline-block px-4 sm:px-6 py-2 sm:py-3 bg-white text-zinc-900 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-semibold hover:bg-blue-500 hover:text-white transition-all">
+                    Me contacter
+                </a>
+                <button id="mobile-menu-toggle" class="md:hidden text-white text-xl p-2">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-zinc-900 border-t border-zinc-800">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#accueil" class="block px-4 py-2 nav-link rounded-lg hover:bg-zinc-800">Accueil</a>
+                <a href="#apropos" class="block px-4 py-2 nav-link rounded-lg hover:bg-zinc-800">À propos</a>
+                <a href="#projets" class="block px-4 py-2 nav-link rounded-lg hover:bg-zinc-800">Projets</a>
+                <a href="#contact" class="block px-4 py-2 nav-link rounded-lg hover:bg-zinc-800">Contact</a>
+                <a href="#contact"
+                    class="block px-4 py-3 bg-white text-zinc-900 rounded-xl font-semibold hover:bg-blue-500 hover:text-white transition-all text-center mt-2">
+                    Me contacter
+                </a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero / Accueil -->
-    <section id="accueil" class="hero-bg min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl text-sm">
+    <section id="accueil" class="hero-bg min-h-screen flex items-center pt-24 sm:pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-6 sm:gap-12 items-center w-full">
+            <div class="space-y-4 sm:space-y-8">
+                <div class="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md px-3 sm:px-5 py-2 rounded-3xl text-xs sm:text-sm w-fit">
                     <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    Disponible pour des stages / freelance
+                    <span>Disponible • Stages / Freelance</span>
                 </div>
-                
-                <h1 class="text-6xl md:text-7xl font-bold heading-font leading-tight tracking-tighter">
-                    Bonjour, je suis <span class="text-blue-400">Ulysse Ferlin</span>
+
+                <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold heading-font leading-tight tracking-tighter">
+                    Bonjour, je suis <span class="text-blue-400">Ulysse</span>
                 </h1>
-                
-                <p class="text-2xl text-zinc-300 max-w-lg">
+
+                <p class="text-base sm:text-lg md:text-xl text-zinc-300 max-w-lg">
                     Étudiant en programmation à Sup'info Dakar.<br>
                     Créateur de solutions digitales innovantes.
                 </p>
-                
-                <div class="flex flex-wrap gap-4"><a href="#projets" 
-                       class="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-2xl font-semibold text-lg transition-all inline-flex items-center gap-3">
+
+                <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                    <a href="#projets"
+                        class="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-lg transition-all inline-flex items-center justify-center gap-2 sm:gap-3">
                         Voir mes projets
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    
-                    <a href="#contact" 
-                       class="px-8 py-4 border border-white/30 hover:border-white/70 rounded-2xl font-semibold text-lg transition-all">
+
+                    <a href="#contact"
+                        class="px-6 sm:px-8 py-3 sm:py-4 border border-white/30 hover:border-white/70 rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-lg transition-all inline-flex items-center justify-center">
                         Me contacter
                     </a>
                 </div>
-                
-                <div class="flex gap-8 pt-6">
-                    <a href="https://facebook.com/UlysseDACOSTA" target="_blank" class="hover:text-blue-400 transition-colors">
-                        <i class="fab fa-facebook text-3xl"></i>
+
+                <div class="flex gap-4 sm:gap-8 pt-2 sm:pt-6">
+                    <a href="https://facebook.com/UlysseDACOSTA" target="_blank"
+                        class="hover:text-blue-400 transition-colors text-xl sm:text-3xl">
+                        <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="https://instagram.com/Ulysse.frl" target="_blank" class="hover:text-pink-400 transition-colors">
-                        <i class="fab fa-instagram text-3xl"></i>
+                    <a href="https://instagram.com/Ulysse.frl" target="_blank"
+                        class="hover:text-pink-400 transition-colors text-xl sm:text-3xl">
+                        <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://linkedin.com/in/ulysse-ferlin-maganga-dacosta" target="_blank" class="hover:text-blue-500 transition-colors">
-                        <i class="fab fa-linkedin text-3xl"></i>
+                    <a href="https://linkedin.com/in/ulysse-ferlin-maganga-dacosta" target="_blank"
+                        class="hover:text-blue-500 transition-colors text-xl sm:text-3xl">
+                        <i class="fab fa-linkedin"></i>
                     </a>
                 </div>
             </div>
-            
-            <div class="flex justify-center">
+
+            <!-- Hero Image -->
+            <div class="flex justify-center mt-6 sm:mt-0">
                 <div class="relative">
-                    <img src="img/img2.jpg" 
-                         alt="Ulysse Ferlin Maganga Da Costa"
-                         class="w-96 h-96 object-cover rounded-[4rem] shadow-2xl border-8 border-white/20">
-                    <div class="absolute -bottom-4 -right-4 bg-zinc-900 border border-blue-500 rounded-3xl px-6 py-3 text-sm font-medium">
+                    <img src="img/img2.jpg" alt="Ulysse Ferlin Maganga Da Costa"
+                        class="w-48 h-48 sm:w-80 sm:h-80 md:w-96 md:h-96 object-cover rounded-3xl sm:rounded-[4rem] shadow-2xl border-4 sm:border-8 border-white/20">
+                    <div
+                        class="absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 bg-zinc-900 border border-blue-500 rounded-2xl sm:rounded-3xl px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium">
                         🇬🇦 Gabon • 🇸🇳 Sénégal
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-sm opacity-70">
+
+        <div
+            class="absolute bottom-4 sm:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-xs sm:text-sm opacity-70">
             <div>Défiler pour découvrir</div>
-            <i class="fas fa-chevron-down animate-bounce text-2xl"></i>
+            <i class="fas fa-chevron-down animate-bounce text-lg sm:text-2xl"></i>
         </div>
     </section>
 
     <!-- À propos -->
-    <section id="apropos" class="py-24 bg-zinc-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-16">
-                <div class="md:col-span-5">
-                    <h2 class="section-title text-5xl font-bold heading-font mb-8">À propos de moi</h2>
-                    <div class="space-y-6 text-zinc-300 text-lg">
-                        <p>
-                            Je suis un jeune étudiant gabonais de 20 ans, né le 20 décembre 2005 à Lambaréné. 
-                            Passionné par la technologie, je suis actuellement inscrit en programmation à l'Université Sup'info de Dakar.
-                        </p>
-                        <p>
-                            Mon objectif est de devenir un développeur compétent capable de concevoir des solutions innovantes 
-                            répondant aux besoins réels des utilisateurs.
-                        </p>
+    <section id="apropos" class="py-12 sm:py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-12 gap-8 sm:gap-16">
+                <!-- Left Column -->
+                <div class="md:col-span-5 space-y-8">
+                    <div>
+                        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold heading-font mb-6 sm:mb-8">À propos de moi</h2>
+                        <div class="space-y-4 sm:space-y-6 text-zinc-300 text-sm sm:text-base md:text-lg">
+                            <p>
+                                Je suis un jeune étudiant gabonais de 20 ans, né le 20 décembre 2005 à Lambaréné.
+                                Passionné par la technologie, je suis actuellement inscrit en programmation à l'Université
+                                Sup'info de Dakar.
+                            </p>
+                            <p>
+                                Mon objectif est de devenir un développeur compétent capable de concevoir des solutions
+                                innovantes répondant aux besoins réels des utilisateurs.
+                            </p>
+                        </div>
                     </div>
-                    
-                    <div class="mt-12">
-                        <h3 class="text-xl font-semibold mb-6">Mes compétences</h3>
-                        <div class="grid grid-cols-2 gap-6">
+
+                    <!-- Skills -->
+                    <div class="mt-8 sm:mt-12">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Mes compétences</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                             <div>
-                                <div class="flex justify-between text-sm mb-2">
-                                    <span>HTML / CSS / JS</span>
-                                    <span>85%</span>
+                                <div class="flex justify-between text-xs sm:text-sm mb-2">
+                                    <span>HTML / CSS </span>
+                                    <span class="text-blue-400">60%</span>
                                 </div>
-                                <div class="bg-zinc-800 h-1.5 rounded-full"><div class="skill-bar w-[85%]"></div></div>
+                                <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="skill-bar w-[60%]"></div>
+                                </div>
                             </div>
                             <div>
-                                <div class="flex justify-between text-sm mb-2"><span>Responsive Design</span>
-                                    <span>90%</span>
+                                <div class="flex justify-between text-xs sm:text-sm mb-2">
+                                    <span>Responsive Design</span>
+                                    <span class="text-blue-400">85%</span>
                                 </div>
-                                <div class="bg-zinc-800 h-1.5 rounded-full"><div class="skill-bar w-[90%]"></div></div>
+                                <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="skill-bar w-[85%]"></div>
+                                </div>
                             </div>
                             <div>
-                                <div class="flex justify-between text-sm mb-2">
+                                <div class="flex justify-between text-xs sm:text-sm mb-2">
                                     <span>Design Graphique</span>
-                                    <span>80%</span>
+                                    <span class="text-blue-400">80%</span>
                                 </div>
-                                <div class="bg-zinc-800 h-1.5 rounded-full"><div class="skill-bar w-[80%]"></div></div>
+                                <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="skill-bar w-[80%]"></div>
+                                </div>
                             </div>
                             <div>
-                                <div class="flex justify-between text-sm mb-2">
+                                <div class="flex justify-between text-xs sm:text-sm mb-2">
                                     <span>IA & Prompting</span>
-                                    <span>75%</span>
+                                    <span class="text-blue-400">75%</span>
                                 </div>
-                                <div class="bg-zinc-800 h-1.5 rounded-full"><div class="skill-bar w-[75%]"></div></div>
+                                <div class="bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                                    <div class="skill-bar w-[75%]"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
+                <!-- Right Column -->
                 <div class="md:col-span-7">
-                    <div class="bg-zinc-800/50 border border-zinc-700 rounded-3xl p-10">
-                        <h3 class="text-2xl font-semibold mb-8">Formation & Expérience</h3>
-                        <div class="space-y-10">
-                            <div class="flex gap-6">
-                                <div class="w-20 text-right text-sm text-zinc-400 pt-1">
-                                    2024 - Aujourd'hui
+                    <!-- Formation -->
+                    <div class="bg-zinc-800/50 border border-zinc-700 rounded-2xl sm:rounded-3xl p-6 sm:p-10 mb-6 sm:mb-8">
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8">Formation & Expérience</h3>
+                        <div class="space-y-6 sm:space-y-10">
+                            <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                                <div class="text-xs sm:text-sm text-zinc-400">
+                                    <div class="font-semibold text-white">2026 - Aujourd'hui</div>
                                 </div>
-                                <div>
-                                    <div class="font-semibold">Licence en Programmation</div>
-                                    <div class="text-blue-400">Sup'info Dakar, Sénégal</div>
-                                    <p class="text-sm text-zinc-400 mt-1">Développement web, bases de données, algorithmes</p>
+                                <div class="flex-1">
+                                    <div class="font-semibold text-sm sm:text-base"> Inscris en Licence_1 Programmation</div>
+                                    <div class="text-blue-400 text-xs sm:text-sm">Sup'info Dakar, Sénégal</div>
+                                    <p class="text-xs sm:text-sm text-zinc-400 mt-1">Développement web, bases de données,
+                                        algorithmes</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex gap-6">
-                                <div class="w-20 text-right text-sm text-zinc-400 pt-1">
-                                    2023
+
+                            <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                                <div class="text-xs sm:text-sm text-zinc-400">
+                                    <div class="font-semibold text-white">2025</div>
                                 </div>
-                                <div>
-                                    <div class="font-semibold">Baccalauréat</div>
-                                    <div class="text-blue-400">Lycée, Gabon</div>
+                                <div class="flex-1">
+                                    <div class="font-semibold text-sm sm:text-base">Baccalauréat</div>
+                                    <div class="text-blue-400 text-xs sm:text-sm">Lycée, Gabon</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="mt-8 grid grid-cols-3 gap-6 text-center">
-                        <div class="bg-zinc-800/50 border border-zinc-700 rounded-3xl p-6">
-                            <div class="text-4xl font-bold text-blue-400">20</div>
-                            <div class="text-sm text-zinc-400">ans</div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6">
+                        <div class="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-4 sm:p-6 text-center">
+                            <div class="text-2xl sm:text-4xl font-bold text-blue-400">20</div>
+                            <div class="text-xs sm:text-sm text-zinc-400 mt-1">ans</div>
                         </div>
-                        <div class="bg-zinc-800/50 border border-zinc-700 rounded-3xl p-6">
-                            <div class="text-4xl font-bold text-blue-400">🇬🇦</div>
-                            <div class="text-sm text-zinc-400">Gabon</div>
+                        <div class="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-4 sm:p-6 text-center">
+                            <div class="text-2xl sm:text-4xl font-bold text-blue-400">🇬🇦</div>
+                            <div class="text-xs sm:text-sm text-zinc-400 mt-1">Gabon</div>
                         </div>
-                        <div class="bg-zinc-800/50 border border-zinc-700 rounded-3xl p-6">
-                            <div class="text-4xl font-bold text-blue-400">3</div>
-                            <div class="text-sm text-zinc-400">Langues</div>
+                        <div class="bg-zinc-800/50 border border-zinc-700 rounded-2xl p-4 sm:p-6 text-center">
+                            <div class="text-2xl sm:text-4xl font-bold text-blue-400">3</div>
+                            <div class="text-xs sm:text-sm text-zinc-400 mt-1">Langues</div>
                         </div>
                     </div>
                 </div>
@@ -246,139 +320,149 @@
     </section>
 
     <!-- Projets -->
-    <section id="projets" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-5xl font-bold heading-font inline-block">Mes Projets</h2><p class="text-zinc-400 mt-4 max-w-md mx-auto">Quelques créations qui reflètent ma passion pour le design et le développement</p>
+    <section id="projets" class="py-12 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10 sm:mb-16">
+                <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold heading-font inline-block mb-4">Mes Projets</h2>
+                <p class="text-sm sm:text-base text-zinc-400 max-w-md mx-auto">Quelques créations qui reflètent ma passion pour le
+                    design et le développement</p>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Projet 1 -->
-                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden group">
-                    <div class="h-56 bg-zinc-800 flex items-center justify-center text-6xl">
+                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-2xl sm:rounded-3xl overflow-hidden group">
+                    <div class="h-40 sm:h-56 bg-zinc-800 flex items-center justify-center text-4xl sm:text-6xl">
                         🌐
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold mb-2">Mini-site E-commerce</h3>
-                        <p class="text-zinc-400 text-sm mb-6">Site responsive moderne pour une boutique en ligne avec panier intégré.</p>
+                    <div class="p-6 sm:p-8">
+                        <h3 class="text-lg sm:text-2xl font-semibold mb-2">Mini-site E-commerce</h3>
+                        <p class="text-zinc-400 text-xs sm:text-sm mb-6">Site responsive moderne pour une boutique en ligne avec
+                            panier intégré.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-zinc-800 text-xs rounded-full">HTML</span>
                             <span class="px-3 py-1 bg-zinc-800 text-xs rounded-full">Tailwind</span>
-                            <span class="px-3 py-1 bg-zinc-800 text-xs rounded-full">JS</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Projet 2 -->
                 <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden group">
-                    <div class="h-56 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-6xl">
+                    <div
+                        class="h-56 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-6xl">
                         🎨
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-semibold mb-2">Affiches Publicitaires</h3>
-                        <p class="text-zinc-400 text-sm mb-6">Création d’identité visuelle et d’affiches pour différentes campagnes.</p>
+                        <p class="text-zinc-400 text-sm mb-6">Création d’identité visuelle et d’affiches pour
+                            différentes campagnes.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-zinc-800 text-xs rounded-full">Photoshop</span>
                             <span class="px-3 py-1 bg-zinc-800 text-xs rounded-full">Canva</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Projet 3 -->
-                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden group">
-                    <div class="h-56 bg-zinc-800 flex items-center justify-center text-6xl">
+                <div class="project-card bg-zinc-900 border border-zinc-800 rounded-2xl sm:rounded-3xl overflow-hidden group">
+                    <div class="h-40 sm:h-56 bg-zinc-800 flex items-center justify-center text-4xl sm:text-6xl">
                         📱
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold mb-2">Portfolio IA</h3>
-                        <p class="text-zinc-400 text-sm mb-6">Ce site même ! Développé avec Tailwind et interactions fluides.</p>
+                    <div class="p-6 sm:p-8">
+                        <h3 class="text-lg sm:text-2xl font-semibold mb-2">Portfolio IA</h3>
+                        <p class="text-zinc-400 text-xs sm:text-sm mb-6">Ce site même ! Développé avec Tailwind et interactions
+                            fluides.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-zinc-800 text-xs rounded-full">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-zinc-800 text-xs rounded-full">JavaScript</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-12">
-                <p class="text-zinc-400">Et bien d'autres projets en cours...</p>
+
+            <div class="text-center mt-10 sm:mt-12">
+                <p class="text-xs sm:text-sm text-zinc-400">Et bien d'autres projets en cours...</p>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-24 bg-zinc-900">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-5xl font-bold heading-font inline-block">Contactez-moi</h2>
+    <section id="contact" class="py-12 sm:py-24 bg-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10 sm:mb-16">
+                <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold heading-font inline-block mb-4">Contactez-moi</h2>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
+
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
                 <div>
-                    <div class="space-y-8">
+                    <div class="space-y-6 sm:space-y-8">
                         <div>
-                            <div class="flex items-center gap-4">
-                                <i class="fas fa-envelope text-3xl text-blue-400"></i>
-                                <div>
-                                    <div class="text-sm text-zinc-400">Email</div><a href="mailto:ulysseferlindacosta@gmail.com" class="hover:text-blue-400">ulysseferlindacosta@gmail.com</a>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                                <i class="fas fa-envelope text-2xl sm:text-3xl text-blue-400 flex-shrink-0"></i>
+                                <div class="text-sm">
+                                    <div class="text-xs sm:text-sm text-zinc-400">Email</div>
+                                    <a href="mailto:ulysseferlindacosta@gmail.com"
+                                        class="hover:text-blue-400 text-sm sm:text-base break-all">ulysseferlindacosta@gmail.com</a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div>
-                            <div class="flex items-center gap-4">
-                                <i class="fas fa-phone text-3xl text-blue-400"></i>
-                                <div>
-                                    <div class="text-sm text-zinc-400">Téléphone</div>
-                                    <a href="tel:+221778428000" class="hover:text-blue-400">+221 77 842 80 00</a>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                                <i class="fas fa-phone text-2xl sm:text-3xl text-blue-400 flex-shrink-0"></i>
+                                <div class="text-sm">
+                                    <div class="text-xs sm:text-sm text-zinc-400">Téléphone</div>
+                                    <a href="tel:+221778428000" class="hover:text-blue-400 text-sm sm:text-base">+221 77 842 80 00</a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div>
-                            <div class="flex items-center gap-4">
-                                <i class="fas fa-map-marker-alt text-3xl text-blue-400"></i>
-                                <div>
-                                    <div class="text-sm text-zinc-400">Adresse</div>
-                                    <div>Rue MZ 105, Mermoz<br>Dakar, Sénégal</div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                                <i class="fas fa-map-marker-alt text-2xl sm:text-3xl text-blue-400 flex-shrink-0"></i>
+                                <div class="text-sm">
+                                    <div class="text-xs sm:text-sm text-zinc-400">Adresse</div>
+                                    <div class="text-sm">Rue MZ 105, Mermoz<br>Dakar, Sénégal</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="mt-16">
-                        <h3 class="font-semibold mb-6">Réseaux sociaux</h3>
-                        <div class="flex flex-wrap gap-6 text-3xl">
-                            <a href="https://facebook.com/UlysseDACOSTA" target="_blank" class="hover:scale-125 transition-transform"><i class="fab fa-facebook"></i></a>
-                            <a href="https://instagram.com/Ulysse.frl" target="_blank" class="hover:scale-125 transition-transform"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank" class="hover:scale-125 transition-transform"><i class="fab fa-snapchat"></i></a>
-                            <a href="https://linkedin.com/in/ulysse-ferlin-maganga-dacosta" target="_blank" class="hover:scale-125 transition-transform"><i class="fab fa-linkedin"></i></a>
+
+                    <div class="mt-10 sm:mt-16">
+                        <h3 class="font-semibold mb-4 sm:mb-6 text-sm sm:text-base">Réseaux sociaux</h3>
+                        <div class="flex flex-wrap gap-4 sm:gap-6 text-2xl sm:text-3xl">
+                            <a href="https://facebook.com/UlysseDACOSTA" target="_blank"
+                                class="hover:scale-125 transition-transform"><i class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com/Ulysse.frl" target="_blank"
+                                class="hover:scale-125 transition-transform"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank" class="hover:scale-125 transition-transform"><i
+                                    class="fab fa-snapchat"></i></a>
+                            <a href="https://linkedin.com/in/ulysse-ferlin-maganga-dacosta" target="_blank"
+                                class="hover:scale-125 transition-transform"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Formulaire -->
-                <form action="https://formspree.io/f/votre-id" method="POST" class="space-y-6">
+                <form action="https://formspree.io/f/votre-id" method="POST" class="space-y-4 sm:space-y-6">
                     <div>
-                        <label class="block text-sm mb-2">Nom complet</label>
+                        <label class="block text-xs sm:text-sm mb-2">Nom complet</label>
                         <input type="text" name="name" required
-                               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500">
+                            class="w-full bg-zinc-800 border border-zinc-700 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm focus:outline-none focus:border-blue-500">
                     </div>
-                    
+
                     <div>
-                        <label class="block text-sm mb-2">Email</label>
+                        <label class="block text-xs sm:text-sm mb-2">Email</label>
                         <input type="email" name="email" required
-                               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500">
+                            class="w-full bg-zinc-800 border border-zinc-700 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm focus:outline-none focus:border-blue-500">
                     </div>
-                    
+
                     <div>
-                        <label class="block text-sm mb-2">Message</label>
+                        <label class="block text-xs sm:text-sm mb-2">Message</label>
                         <textarea name="message" rows="6" required
-                                  class="w-full bg-zinc-800 border border-zinc-700 rounded-3xl px-6 py-4 focus:outline-none focus:border-blue-500"></textarea>
+                            class="w-full bg-zinc-800 border border-zinc-700 rounded-xl sm:rounded-3xl px-4 sm:px-6 py-3 sm:py-4 text-sm focus:outline-none focus:border-blue-500"></textarea>
                     </div>
-                    
+
                     <button type="submit"
-                            class="w-full py-5 bg-blue-600 hover:bg-blue-700 rounded-2xl font-semibold text-lg transition-all">
+                        class="w-full py-3 sm:py-5 bg-blue-600 hover:bg-blue-700 rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-lg transition-all">
                         Envoyer le message
                     </button>
                 </form>
@@ -387,19 +471,33 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-zinc-900">
-        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
-            <p>© 2026 Ulysse Ferlin MAGANGA DACOSTA. Tous droits réservés.</p>
+    <footer class="bg-black py-8 sm:py-12 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center text-zinc-500 text-xs sm:text-sm">
+            <p>© 2026 Ulysse Ferlin Maganga Da Costa. Tous droits réservés.</p>
             <p class="mt-2">Étudiant passionné • Prêt à collaborer</p>
         </div>
     </footer>
 
     <script>
-        // Tailwind script already included
-        
+        // Menu mobile toggle
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') !== '#') {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
@@ -413,4 +511,5 @@
         });
     </script>
 </body>
+
 </html>
